@@ -6,7 +6,8 @@
     "space-before-function-paren": ["error", "always"],
     "comma-dangle": ["error", "never"],
     "semi": ["error", "never"],
-    "indent": ["error", "tab"],
+    "indent": ["error", "tab", { "SwitchCase": 1 }],
+    "eol-last": ["error", "never"],
     "space-unary-ops": [2, {
       "words": true,
       "nonwords": false,
@@ -16,6 +17,7 @@
       }
     }],
     "no-bitwise": 0,
+    "no-floating-decimal": 0,
     "no-useless-constructor": 0,
     "padded-blocks": 0,
     "no-plusplus": 0,
