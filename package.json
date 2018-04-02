@@ -1,15 +1,14 @@
 {
   "name": "fw",
   "version": "1.0.0",
-  "homepage": "https://github.com/nazarov-mi/shri-homework-7.2#readme",
+  "homepage": "https://github.com/nazarov-mi/shri-homework-8.2#readme",
   "bugs": {
-    "url": "https://github.com/nazarov-mi/shri-homework-7.2/issues"
+    "url": "https://github.com/nazarov-mi/shri-homework-8.2/issues"
   },
   "main": "index.js",
   "scripts": {
-    "docs:build": "jsdoc --configure .jsdoc.json --verbose",
-    "lint": "eslint \"**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs:build": "rimraf ./docs && jsdoc --configure .jsdoc.json --verbose",
+    "lint": "eslint \"**/*.js\""
   },
   "husky": {
     "hooks": {
@@ -19,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nazarov-mi/shri-homework-7.2.git"
+    "url": "git+https://github.com/nazarov-mi/shri-homework-8.2.git"
   },
   "author": "Nazarov MI (m@nazarov-mi.ru)",
   "license": "ISC",
@@ -30,6 +29,7 @@
     "eslint-plugin-import": "^2.10.0",
     "husky": "^0.14.3",
     "jsdoc": "^3.5.5",
-    "minami": "^1.2.3"
+    "minami": "^1.2.3",
+    "rimraf": "^2.6.2"
   }
 }
