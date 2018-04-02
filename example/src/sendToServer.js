@@ -1,3 +1,4 @@
+// Отправка данных на сервер
 export default data => new Promise((resolve, reject) => {
 	setTimeout(() => {
 		if (Math.random() > .3) {

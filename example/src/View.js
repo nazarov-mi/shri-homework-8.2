@@ -1,13 +1,27 @@
 import fw from 'fw'
 import Model from './Model'
+import $ from './$'
 
-const $ = (selector, target) => (target || document).querySelector(selector)
-
+/**
+ * Класс для работы с представлением,
+ * наследует обстрактный класс fw.View
+ * @class
+ * @extends fw.View
+ */
 class View extends fw.View {
-	constructor (model) {
-		super(model)
+
+	/**
+	 * Создаёт экземпляр View
+	 * @constructs
+	 */
+	constructor () {
+		super(Model)
 	}
 
+	/**
+	 * Запускает инициализацию представления
+	 * @param {target} target - родительский HTML элемент
+	 */
 	init (target) {
 		this._$apply = $('.view-stub__apply', target)
 		this._$input = $('.view-stub__input', target)
@@ -23,10 +37,16 @@ class View extends fw.View {
 		this.model.on('message-added', () => this.renderMessages())
 	}
 
+	/**
+	 * Запускает отрисовку представления
+	 */
 	render () {
 		this.renderMessages()
 	}
 
+	/**
+	 * Запускает отрисовку списка сообщений
+	 */
 	renderMessages () {
 		const state = this.model.state
 		this._$label.innerHTML = `<p>${state.messages.join('</p><p>')}</p>`
