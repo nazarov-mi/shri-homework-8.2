@@ -3,6 +3,7 @@ const EventDispatcher = require('./EventDispatcher')
 /**
  * Класс реализует модель для хранения и обработки входящих данных
  * @class
+ * @extends EventDispatcher
  */
 class Model extends EventDispatcher {
 

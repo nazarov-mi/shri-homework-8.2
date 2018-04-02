@@ -9,6 +9,7 @@ const AbstractMethodError = require('./errors/AbstractMethodError')
  * и отображения данных, переданных моделью
  * @abstract
  * @class
+ * @extends EventDispatcher
  */
 class View extends EventDispatcher {
 
