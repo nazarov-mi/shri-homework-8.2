@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -167,8 +167,8 @@ exports.default = new Model();
 "use strict";
 
 
-module.exports.Model = __webpack_require__(6);
-module.exports.View = __webpack_require__(7);
+module.exports.Model = __webpack_require__(7);
+module.exports.View = __webpack_require__(8);
 
 /***/ }),
 /* 2 */
@@ -330,7 +330,29 @@ module.exports = AbstractClassError;
 "use strict";
 
 
-var _View = __webpack_require__(5);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/**
+ * Метод для работы с DOM-дереом,
+ * ищет элемент по селектору
+ * @param  {String} selector - селектор для поиска
+ * @param  {HTMLElement} target - root элемент в котором выполнится поиск
+ * @return {HTMLElement|null} Возвращает найденный элемент или null
+ */
+exports.default = function (selector, target) {
+  return (target || document).querySelector(selector);
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _View = __webpack_require__(6);
 
 var _View2 = _interopRequireDefault(_View);
 
@@ -338,15 +360,15 @@ var _Model = __webpack_require__(0);
 
 var _Model2 = _interopRequireDefault(_Model);
 
-var _Controller = __webpack_require__(9);
+var _Controller = __webpack_require__(10);
 
 var _Controller2 = _interopRequireDefault(_Controller);
 
-var _sendToServer = __webpack_require__(10);
+var _sendToServer = __webpack_require__(11);
 
 var _sendToServer2 = _interopRequireDefault(_sendToServer);
 
-var _$ = __webpack_require__(11);
+var _$ = __webpack_require__(4);
 
 var _$2 = _interopRequireDefault(_$);
 
@@ -412,7 +434,7 @@ _Model2.default.on('data-changed', function (data) {
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -432,7 +454,7 @@ var _Model = __webpack_require__(0);
 
 var _Model2 = _interopRequireDefault(_Model);
 
-var _$ = __webpack_require__(11);
+var _$ = __webpack_require__(4);
 
 var _$2 = _interopRequireDefault(_$);
 
@@ -518,7 +540,7 @@ var View = function (_fw$View) {
 exports.default = new View(_Model2.default);
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -592,7 +614,7 @@ var Model = function (_EventDispatcher) {
 module.exports = Model;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -610,7 +632,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* eslint-disable class-methods-use-this, no-unused-vars */
 var EventDispatcher = __webpack_require__(2);
 var AbstractClassError = __webpack_require__(3);
-var AbstractMethodError = __webpack_require__(8);
+var AbstractMethodError = __webpack_require__(9);
 
 /**
  * Абстрактный класс для работы с представлением
@@ -705,7 +727,7 @@ var View = function (_EventDispatcher) {
 module.exports = View;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -732,7 +754,7 @@ function AbstractMethodError(className, methodName) {
 module.exports = AbstractMethodError;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -767,7 +789,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -788,28 +810,6 @@ exports.default = function (data) {
 			}
 		}, 500);
 	});
-};
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-/**
- * Метод для работы с DOM-дереом,
- * ищет элемент по селектору
- * @param  {String} selector - селектор для поиска
- * @param  {HTMLElement} target - root элемент в котором выполнится поиск
- * @return {HTMLElement|null} Возвращает найденный элемент или null
- */
-exports.default = function (selector, target) {
-  return (target || document).querySelector(selector);
 };
 
 /***/ })
