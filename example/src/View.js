@@ -20,7 +20,7 @@ class View extends fw.View {
 
 	/**
 	 * Запускает инициализацию представления
-	 * @param {target} target - родительский HTML элемент
+	 * @param {HTMLElement} target - родительский HTML элемент
 	 */
 	init (target) {
 		this._$apply = $('.view-stub__apply', target)
@@ -54,4 +54,4 @@ class View extends fw.View {
 }
 
 // Возвращаем новый экземпляр представления
-export default new View(Model)
+export default new View()
