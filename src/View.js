@@ -46,7 +46,7 @@ class View extends EventDispatcher {
 	/**
 	 * Запускает инициализацию представления
 	 * @abstract
-	 * @param  {target} target - родительский HTML элемент
+	 * @param {target} target - родительский HTML элемент
 	 */
 	init (target) {
 		throw new AbstractMethodError('View', 'init')
@@ -70,4 +70,5 @@ class View extends EventDispatcher {
 	}
 }
 
+// Возвращаем новый экземпляр представления
 module.exports = View
