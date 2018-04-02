@@ -32,7 +32,7 @@ class View extends EventDispatcher {
 	/**
 	 * Устанавливает родительский HTML элемент,
 	 * после чего запускает инициализацию и отрисовку представления
-	 * @param  {target} target - родительский HTML элемент
+	 * @param  {HTMLElement} target - родительский HTML элемент
 	 * @return {View} Возвращает текущий экземпляр класса
 	 */
 	mount (target) {
@@ -46,7 +46,7 @@ class View extends EventDispatcher {
 	/**
 	 * Запускает инициализацию представления
 	 * @abstract
-	 * @param {target} target - родительский HTML элемент
+	 * @param {HTMLElement} target - родительский HTML элемент
 	 */
 	init (target) {
 		throw new AbstractMethodError('View', 'init')
