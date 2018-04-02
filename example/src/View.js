@@ -53,4 +53,5 @@ class View extends fw.View {
 	}
 }
 
+// Возвращаем новый экземпляр представления
 export default new View(Model)

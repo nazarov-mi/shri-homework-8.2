@@ -70,5 +70,4 @@ class View extends EventDispatcher {
 	}
 }
 
-// Возвращаем новый экземпляр представления
 module.exports = View
