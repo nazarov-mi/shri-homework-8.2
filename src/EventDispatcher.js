@@ -3,8 +3,7 @@
 const AbstractClassError = require('./errors/AbstractClassError')
 
 /**
- * Класс реализует шаблон проектирования наблюдатель —
- * механизма подписки на события и рассылки данных между подписчиками.
+ * Класс реализует механизма подписки на события и рассылки данных между подписчиками.
  * @abstract
  * @class
  */
@@ -23,11 +22,15 @@ class EventDispatcher {
 	}
 
 	/**
-	 * Подписывает функцию обратного вызова, если она не была подписана ранее
+	 * Подписывает функцию обратного вызова на события определённого типа,
+	 * если она не была подписана ранее
+	 * @param  {String} type - тип события
 	 * @param  {Function} callback - функция обратного вызова
+	 * @param  {Boolean} greatPriority - если является true —
+	 * функция обратного вызова добавляется в начало очереди
 	 * @return {EventDispatcher} Возвращает текущий экземпляр класса
 	 */
-	on (type, callback) {
+	on (type, callback, greatPriority = false) {
 		if (typeof callback === 'function') {
 			let callbacks = this._listeners[type]
 
@@ -39,7 +42,11 @@ class EventDispatcher {
 			const index = callbacks.indexOf(callback)
 
 			if (index < 0) {
-				callbacks.push(callback)
+				if (greatPriority) {
+					callbacks.unshift(callback)
+				} else {
+					callbacks.push(callback)
+				}
 			}
 		}
 
@@ -47,7 +54,8 @@ class EventDispatcher {
 	}
 
 	/**
-	 * Отписывает функцию обратного вызова от событий
+	 * Отписывает функцию обратного вызова от событий определённого типа,
+	 * @param  {String} type - тип события
 	 * @param  {Function} callback - функция обратного вызова
 	 * @return {EventDispatcher} Возвращает текущий экземпляр класса
 	 */
@@ -66,7 +74,9 @@ class EventDispatcher {
 	}
 
 	/**
-	 * Рассылает данные между всему функциями обратного вызова
+	 * Рассылает данные между всему функциями обратного вызова,
+	 * подписанными на событие определённого типа
+	 * @param  {String} type - тип события
 	 * @param  {any} payload - данные для рассылки
 	 * @return {EventDispatcher} Возвращает текущий экземпляр класса
 	 */
